@@ -1,0 +1,64 @@
+<%- include('./partials/header', {title : product.name}) %> 
+  
+    <div class="d-flex max-width-100  full-width g-0 full-height justify-content-center align-items-center">
+        <div class="product-detail-container row max-width-100 g-0">
+          <div class="alerts">
+            <% if(message.productStoredSuccessfully.length) {%> 
+                <div class="alert alert-success">
+                  <%= message.productStoredSuccessfully %> 
+                </div>
+            <% } %>
+            
+            <% if(message.updateSuccessful.length) {%> 
+              <div class="alert alert-success">
+                <%= message.updateSuccessful %> 
+              </div>
+          <% } %>   
+          </div>
+                    
+          <div class="col-12 col-md-9 col-lg-7 col-xl-5">
+            <table class='my-table product-detail-table'>
+              <tr class='my-table-row'>
+                <td class='my-table-data'>name</td>
+                <td class='my-table-data'><%= product.name %></td>
+              </tr class='my-table-data'>
+              <tr class='my-table-row'>
+                <td class='my-table-data'>Category</td>
+                <td  class='my-table-data'><%= product.category.name %></td>
+              </t>
+              <tr class='my-table-row'>
+                <td class='my-table-data'>price</td>
+                <td class='my-table-data'><%= product.price %></td>
+              </tr>
+
+              <tr class='my-table-row'>
+                <td class='my-table-data'>Description</td>
+                <td class='my-table-data'><%= product.description %></td>
+              </tr>
+            </table>
+
+
+          </div>
+            <div class="container row mt-2 ">
+              <% for(image of product.images) {%>
+                <div class='col-8 col-md-6 col-lg-4 d-flex col-xl-3 mt-2'  >
+                  <img src='<%= image.view_photo%>' class="m-auto" height="" width="100%"  alt="An Image of <%= product.name %>">
+              </div>
+              <% } %> 
+            </div>
+            <div class="">
+              <div class='edit-delete-container'>
+                <a href="" class= "btn btn-danger">Delete</a>
+                <a href="./<%=product._id%>/edit" class= "btn btn-info">Edit</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('./partials/footer.ejs') %>
+
+
+
+
+
+

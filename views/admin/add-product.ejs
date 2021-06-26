@@ -1,0 +1,55 @@
+<%- include('./partials/header', {title:title}) %> 
+        <div class="container-fluid d-flex justify-content-center py-4">
+            <div class="card category-form-container">
+            <div class='alerts'>
+                <% if(message.invalidData.length) {%> 
+                <div class="alert alert-danger"><%= message.invalidData %> </div>
+                <% } %> 
+
+                <% if(message.dataNotSaved.length) {%> 
+                <div class="alert alert-danger"><%= message.dataNotSaved %> </div>
+                <% } %> 
+                <% console.log("This  is the Form in ejs file", form) %> 
+            </div>
+                <form action="./" method="POST" class="d-flex add-category-form flex-column px-2" enctype = "multipart/form-data">
+                        <div>
+                        <label class = "form-item" for="name">Name</label>
+                        <input class = "form-item" type="text" id="name" name="name" value="<%=form.name%>" >
+                        <div class="warning name-warning-description text-danger"></div>
+
+                        </div>
+                        
+                        <div>
+                            <input class = "form-item d-none" type="text" id="category" name="category" value="<%=category_id%>">
+                        </div>
+
+                        <div>
+                            <label class = "form-item" for="price"> Price </label>
+                            <input class = "form-item" type="text" id="price" name="price" value="<%=form.price%>"  >
+                            <div class="warning price-warning-description text-danger"></div>
+                        </div>
+                            
+                        <div>
+                            <label class = "form-item" for="description"> Description </label>
+                            <textarea rows="4" class="form-item text-start" type="text-area"  id="description" name="description"  ><%=form.description%></textarea>
+                            <div class="warning description-warning-description text-danger"></div>
+                        </div>
+                            
+                        <div>
+                            <label for="images" class="form-item">Add Images</label>
+                            <input type="file" class="" name="images" id="images" multiple>   
+                            <div class="warning image-warning-description text-danger"></div>
+                        </div>
+                            
+                        <button class="btn btn-success mt-4" id="submit-category" type="button">Submit</button>
+                
+                </form>
+                <% console.log("This  is the Form in ejs file", form) %> 
+
+                <a href="../../../admin-panel" class="btn btn-secondary mt-3 go-to-panel">Go Back To Admin Panel</a>
+            </div>
+        </div>
+        <script src="/js/validator.min.js"></script>
+        <script src="/js/admin/add-product.js"></script>
+<%- include('./partials/footer.ejs') %>
+        

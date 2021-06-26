@@ -1,0 +1,34 @@
+<%- include('./partials/header', {title}) %> 
+
+<div class="full-height container-fluid d-flex flex-column">
+    <div class="display-6 mx-auto category-heading text-center bg-primary text-white py-2">
+        Category : <%= category.name %> 
+    </div>
+    <div class="flex-grow-1">
+        <% if(message.categoryAdded.length){ %>
+
+            <div class="alert alert-success mt-2 text-center">
+                    <%= message.categoryAdded %> 
+            </div>
+            <% } %>
+    <div class="show-categories show-products py-2 mt-4 text-center card display-6">
+            Show Products
+    </div>
+    <div class = "pb-1 text-center card product-menu categories-menu" >
+            <%for(let product of products) {%> 
+            <div class="mt-1 card product-item category-item">
+                    <a href="../products/<%= product._id %>"><%= product.name %></a> 
+            </div>                        
+            <% } %> 
+
+    </div>
+    <div class="d-flex">
+            <button class="mt-4 mb-3 category-item products-item add-new-category add-new-product" onclick=
+            "location.href='<%=category.id %>/products/new'"
+            >Add New Product</button>
+    </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %> 
+<script src="/js/admin/category.js"></script>

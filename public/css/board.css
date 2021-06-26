@@ -1,0 +1,17 @@
+.board{
+    color: #64197e;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+.background{
+    background-image: url('../images/gift_background.jpg');
+    background-position: center center; /* First value is from left and second is from top. You can use use number as well*/
+
+}
+
+@media only screen and (max-width: 600px) {
+    .board{
+        font-size: 25px;
+    }
+  }

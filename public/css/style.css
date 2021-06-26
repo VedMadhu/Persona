@@ -1,0 +1,63 @@
+.input-group button{
+    border-radius: 0 0.2em 0.2em 0 !important;
+    background-color: white;
+    border: solid thin;
+    border-left:none;
+}
+
+.input-group button:hover{
+    background-color: white;
+}
+
+
+.input-group input{
+    background-color: white;
+    border: solid thin;
+}
+
+.nav-link{
+    color:white;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-weight:600;
+
+}
+
+.nav-link:hover{
+    color:white;
+}
+
+.logo{
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.logo-container{
+    width: fit-content;
+    height: fit-content;
+    padding:20px 20px 20px 20px;
+    background-color: pink;
+}
+
+
+
+@media only screen and (max-width: 350px) {
+    .input-group {
+      height: 30px !important;
+    }
+
+    .input-group button{
+        height: 25px;
+        font-size: 15px;
+        margin:0;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .input-group > input{
+        height:25px;
+        font-size: 20px;
+        top: 0;
+        bottom:0%;
+        text-align: center;
+    }
+}

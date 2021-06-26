@@ -1,0 +1,33 @@
+<%- include('./partials/header', {title:"Add Category"}) %> 
+        <div class="container-fluid page-container d-flex">
+            <div class="card category-form-container">
+                <% if(message.errorAddCategory.length) {%> 
+                <div class="alert alert-danger"><%= message.errorAddCategory %> ></div>
+                <% } %> 
+                <form action="./" method="POST" class="d-flex add-category-form flex-column px-2 ">
+                        <div>
+                        <label class = "form-item" for="name">Name</label>
+                        <input class = "form-item" type="text" id="name" name="name" >
+                        </div>
+                        
+                        <div>
+                            <label class = "form-item" for="number_of_photos">Max Photos</label>
+                            <input class = "form-item" type="text" id="number_of_photos" name="number_of_photos" >
+                        </div>
+
+                        <div>
+                            <label class = "form-item" for="number_of_characters">Max Characters</label>
+                            <input class = "form-item" type="text" id="number_of_characters" name="number_of_characters" >
+                        </div>
+                            
+                        <button class="btn btn-success mt-4" id="submit-category" type="button">Submit</button>
+                
+                </form>
+
+                <a href="../admin-panel" class="btn btn-secondary mt-3 go-to-panel">Go Back To Admin Panel</a>
+            </div>
+        </div>
+        <script src="/js/validator.min.js"></script>
+        <script src="/js/admin/add-category.js"></script>
+<%- include('./partials/footer.ejs') %>
+        

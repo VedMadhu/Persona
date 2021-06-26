@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/signup-login.css">
+    <script src="dist/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-image: url('./images/background_login.jpg');">
+    <div class="container login-signup-card">
+        <div class="card pt-4 pb-4">
+            <form action="/login" method="POST" class="login-signup-form m-auto container p-4 login-form">
+                <div class="m-auto ml-4">
+                    <% if(message.wrongCredentials.length){ %>
+                        <div class="alert alert-warning p-2 text-center">
+                                <%-message.wrongCredentials%> 
+                        </div>
+                        <% } %>
+                        
+                    <label for="email" class="mt-1">Email Id</label>
+                    <input type="text" name="email" id="email" value=<%= message.loginEmail %> >
+                    <div class="error-description email-error"></div>
+
+                    <label for="password" class="mt-1">Password</label>
+                    <input type="password" name="password" id="password">
+                    <div class="error-description password-error"></div>
+
+                    <input type="Button" class="d-block submit mt-3 btn btn-primary" value="login">
+                </div>
+            </form>
+            <div class="m-auto">
+                Don't have an account? 
+            </div>
+            <a href="Signup" class="m-auto mb-4 btn btn-outline-dark"
+            >Sign Up</a>
+        </div>            
+    </div>
+  
+    <script type="text/javascript" src="js/validator.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+</html>

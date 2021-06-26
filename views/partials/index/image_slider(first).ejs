@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+            
+        <link rel="stylesheet" href="css/slider.css">
+
+    </style>
+
+</head>
+<body>
+
+    <div class="div-block">
+        <img src="images/pre.png" class="pre" >
+        <img src="images/next.png" class="right" >
+        <div class="slider">
+            <span class="slide">0</span>
+            <span class="slide">1</span>
+            <span class="slide">2</span>
+            <span class="slide">3</span>
+            <span class="slide">4</span>
+            <span class="slide">5</span>
+            <span class="slide">6</span>
+        </div>
+    </div>
+    
+    <script>
+        let disabledOpacity = 0.4;
+        slides = document.querySelectorAll(".slide")
+        right = document.querySelector(".right")
+        left = document.querySelector(".pre")
+       
+        counter = 0;
+        let maxVisibleItems = 3;
+        let endOfItems = slides.length - maxVisibleItems; 
+        function disableRight(){
+            right.style.opacity = disabledOpacity;
+            right.style.pointerEvents = "none";
+        }
+
+        function disableLeft(){
+            left.style.opacity = disabledOpacity;
+            left.style.pointerEvents = "none";
+        }
+
+        function enableLeft(){
+            left.style.opacity = 1;
+            left.style.pointerEvents = "auto";
+        }
+
+        disableRight()
+        
+        leftClicked =  ()=>{
+            console.log(counter + "And" + endOfItems)
+            if(counter>=(endOfItems)){
+                console.log("Inside End OF Items");
+                counter = 0;
+                disableRight()
+                for(slide of slides)
+                {
+                     slide.style.transform = "translateX(0%)";
+                     disableLeft();
+                     if(slide == slides[slides.length - 1])
+                     {
+                         slide.addEventListener('transitionend', 
+                         function endTransition(){
+                            console.log("Inside End Transition of Last");
+                            enableLeft();
+                            this.removeEventListener("transitionend", endTransition);
+                         }                         
+                         )
+                     }
+                }
+            }
+            else{
+            console.log("left Clicked")
+        
+            for(slide of slides)
+            {   
+                slide.style.transitionDuration = "0.5s";
+                slide.style.transform = "translateX("+ (counter+1)*(-100) +"%)"
+                
+            }
+            console.log(++counter);
+
+            if(counter==1)
+            {
+                right.style.opacity = 1;
+                right.style.pointerEvents = "auto"
+            }
+        }
+        }
+
+        rightClicked = ()=>{
+            console.log("right Clicked");
+            for(slide of slides)
+            {
+
+                slide.style.transform = "translateX("+ (counter-1)*(-100) +"%)"
+           
+            }
+            console.log(--counter);
+            if(!(counter))
+            disableRight();
+
+        }
+
+        left.addEventListener("click", leftClicked)
+
+        right.addEventListener("click", rightClicked)
+        if(slides.length <= 3)
+        {
+            disableRight
+        }
+
+
+    </script>
+ 
+</body>
+</html>

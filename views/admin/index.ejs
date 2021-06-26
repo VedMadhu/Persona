@@ -1,0 +1,28 @@
+<%- include('./partials/header', {title}) %> 
+       
+        <div class="container-fluid full-height">
+                <% if(message.categoryAdded.length){ %>
+
+                        <div class="alert alert-success mt-2 text-center">
+                                <%= message.categoryAdded %> 
+                        </div>
+                        <% } %>  
+                <div class="show-categories py-2 mt-4 text-center card display-6">
+                        Categories
+                </div>
+                <div class = "pb-1 text-center card categories-menu" >
+                        <% for(let category of categories) {%> 
+                        <div class="mt-1 card category-item">
+                                <a href="./categories/<%= category._id %>"><%= category.name %></a> 
+                        </div>                        
+                        <% } %> 
+                </div>
+                <div class="d-flex">
+                        <button class="mt-4 mb-3 category-item add-new-category" onclick=
+                        "location.href='./categories/new'"
+                        >Add New Category</button>
+                </div>
+        </div>
+
+<%- include('./partials/footer') %> 
+<script src="/js/admin/index.js"></script>

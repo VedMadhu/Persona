@@ -1,0 +1,59 @@
+<%- include('./partials/header', {title:title}) %> 
+    <% console.log("Inside     Edit Product") %> 
+        <div class="container-fluid full-width d-flex justify-content-center py-4">
+            <div class="card category-form-container">
+                <form action="/admin/random_letters/products/<%= id %>/?_method=PATCH"  method="POST" class="d-flex add-category-form flex-column px-2">
+                        
+                    
+                    <div class="alerts">
+                        <% if(message.couldNotUpdate.length) {%> 
+                            <div class="alert alert-warning">
+                              <%= message.couldNotUpdate %> 
+                            </div>
+                        <% } %>
+                        
+                        <% if(message.invalidData.length) {%> 
+                          <div class="alert alert-warning">
+                            <%= message.invalidData %> 
+                          </div>
+                      <% } %>   
+                    </div>
+                    <div>
+                        <label class = "form-item" for="name">Name</label>
+                        <input class = "form-item" type="text" id="name" name="name" value="<%=form.name%>" >
+                        <div class="warning name-warning-description text-danger"></div>
+                        </div>
+                        
+                        <div>
+                            <label for="category" class="form-item">category</label>
+                            <select class = "form-item d-block" type="text" id="category" name="category" value="<%=category_id%>">
+                                <% for(let category of categories) {%>
+                                    <option value="<%=category._id%>" <%if(category._id === id){%>selected<% } %> ><%=category.name%> </option>    
+                                <% } %>      
+                            </select>    
+                        </div>
+
+
+                        <div>
+                            <label class = "form-item" for="price"> Price </label>
+                            <input class = "form-item" type="text" id="price" name="price" value="<%=form.price%>"  >
+                            <div class="warning price-warning-description text-danger"></div>
+                        </div>
+                            
+                        <div>
+                            <label class = "form-item" for="description"> Description </label>
+                            <textarea rows="4" class="form-item text-start" type="text-area"  id="description" name="description"  ><%=form.description%></textarea>
+                            <div class="warning description-warning-description text-danger"></div>
+                        </div>
+                            
+                            
+                        <button class="btn btn-success mt-4" id="submit-category" type="button" >Submit</button>
+                
+                </form>
+                <a href="../../../admin-panel" class="btn btn-secondary mt-3 go-to-panel">Go Back To Admin Panel</a>
+            </div>
+        </div>
+        <script src="/js/validator.min.js"></script>
+        <script src="/js/admin/add-product.js"></script>
+<%- include('./partials/footer.ejs') %>
+        

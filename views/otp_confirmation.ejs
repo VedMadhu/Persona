@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Confirmation</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/signup-login.css">
+    <script src="dist/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-image: url('images/background_login.jpg');">
+    <div class="container login-signup-card">
+        <div class="card">
+            <div class="card-subtitle m-auto mt-2">Do not </div>
+            <% if(message.wrongOTPError){ %>
+                <div class="alert alert-warning p-2 text-center">
+                   
+                        <%- message.wrongOTPError %> 
+                </div>
+                <%}  %>
+
+            <form class="login-signup-form m-auto container p-2" action="/otp_confirmation" method="POST">
+                <div class="fit-content m-auto ml-4">
+                    <label for="OTP" class="mt-1">OTP</label>
+                    <input type="OTP" id="OTP" placeholder="8-20 characters" name="OTP">
+                    <div class="error-description otp-error my-2"></div>
+                    <input type="Button" class="submit d-block mt-2 btn btn-primary"  value="Confirm">
+
+                </div>
+            </form>
+    </div>
+    <script type="text/javascript" src="js/validator.min.js"></script>
+    <script type="text/javascript" src="js/otp.js"></script>
+
+</body>
+</html>

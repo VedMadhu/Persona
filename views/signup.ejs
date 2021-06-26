@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/signup-login.css">
+    <script src="dist/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-image: url('images/background_login.jpg');">
+    <div class="container login-signup-card">
+        <div class="card">
+            <% if(message.wrongUserInfoSignup.length){ %>
+            <div class="alert alert-warning p-2 text-center">
+               
+                    <%- message.wrongUserInfoSignup %> 
+            </div>
+            <%}  %>
+
+            <% if(message.emailExistsError.length){ %>
+                <div class="alert alert-warning p-2 text-center">
+                        <%- message.emailExistsError %> 
+                </div>
+                <%}  %>
+
+                <% if(message.OTPNotSentError.length){ %>
+                    <div class="alert alert-warning p-2 text-center">
+                       
+                            <%- message.OTPNotSentError %> 
+                    </div>
+                    <%}  %>
+
+        <% 
+            let previous={
+                    name:"",
+                    email:"",
+                    phone_number:""
+                }
+            console.log("This is the Locals :: ", previous )
+            console.log(user)
+            if(user)
+            {
+                previous = user
+            }
+            console.log("This is the Locals :: ", previous )
+
+
+        %> 
+            <form class="login-signup-form m-auto container p-2" action="/signup" method="POST">
+                <div class="m-auto px-4 ml-4">
+                    <label for="name" class="mt-1">Full Name</label>
+                    <input type="text" id="name" name="user[name]" value='<%= previous.name %>' >
+                    <div class="error-description name-error"></div>
+                    <label for="email" class="mt-1">Email Id</label>
+                    <input type="text" id="email" name="user[email]" value='<%= previous.email%>'  >
+                    <div class="error-description email-error"></div>
+
+                    <label for="phone_number" class="mt-1">Phone Number</label>
+                    <input type="text" id="phone_number" name="user[phone_number]" value="<%= previous.phone_number%>" >
+                    <div class="error-description phone_number-error"></div>
+
+                    <label for="password" class="mt-1">Set Password</label>
+                    <input type="password" id="set_password" placeholder="8-20 characters" name="user[password]">
+                    <div class="error-description set_password-error"></div>
+                    <label for="confirm_password" class="mt-1">Confirm Password</label>
+                    <input type="password" id="confirm_password" >
+                    <div class="error-description confirm_password-error"></div>
+                    <input type="Button" class="submit d-block mt-3 btn btn-primary"  value="Signup">
+                </div>
+            </form>
+            <div class="m-auto">
+                Already have an account? 
+            </div>
+            <a href="login" class="m-auto mb-4 btn btn-outline-dark">login</a>
+        </div>            
+    </div>
+    <script type="text/javascript" src="js/validator.min.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+.input-group button{
+    border-radius: 0 0.2em 0.2em 0 !important;
+    background-color: white;
+    height: 100%;
+    margin-bottom:2px;
+    border: solid thin;
+    border-left:none;
+}
+
+.input-group button:hover{
+    background-color: white;
+}
+
+
+.input-group input{
+    background-color: white;
+    border: solid thin;
+}
+
+.nav-link{
+    color:rgb(146, 146, 146);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-weight:600;
+
+}
+
+.nav-link:hover{
+    color:rgb(211, 211, 211);
+}
+
+.logo{
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.logo-container{
+    width: fit-content;
+    height: fit-content;
+    margin: 0px;
+    background-color: pink;
+}
+
+a.navbar-brand{
+    padding:0px;
+    margin:0px
+}
+
+a{
+    width:fit-content 
+}
+
+@media only screen and (max-width: 450px) {
+    a#profile, a#login{
+        text-align: left !important;
+    }
+
+    a#categories{
+        text-align :right !important;
+        margin-right: 0px !important;
+    }
+
+
+}
+
+.navbar{
+    background-color:#252829
+}

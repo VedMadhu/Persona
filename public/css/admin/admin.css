@@ -1,0 +1,131 @@
+.navigation{
+    background: rgb(42,48,50);
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    color:white;
+    height:100%;
+    margin-top: 0;
+
+}
+
+
+.admin-feature-link{
+    height: 100%;
+    margin:auto;
+    padding:auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.admin-feature-link-container{
+    display: block;
+    height:8%;
+    padding:auto;
+}
+
+
+  html, body {margin: 0; height: 100%}
+
+.full-height {
+    height: 100%;
+}
+  
+.show-categories{
+    width:50%;
+    cursor: pointer;
+    margin:auto;
+    margin-top: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #caf7e3;
+}
+
+
+.categories-menu{
+    min-width:50%;
+    margin:auto;
+    height: fit-content;
+    transition:height 1s;
+    margin-top: 5px;
+    max-width: fit-content;
+    font-size:1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #caf7e3;
+    display: none;
+}
+
+.category-item{
+    cursor: pointer;
+    background-color: #233e8b;
+    color:white;
+    width:50%;
+    min-width: fit-content;
+    margin:auto
+}
+
+.category-item:hover{
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.add-new-category{
+    background-color: white;
+    color:#233e8b;
+    border: none;
+    border-radius: 2%;
+
+}
+
+.work-area{
+    overflow-y: auto;
+}
+
+.fit-content{
+    min-height: fit-content;
+}
+
+.add-new-category{
+    font-size: 1.5rem;
+    margin:auto;
+    max-width:25%;
+    padding:5px 20px;
+    color:white;
+    background-color:#233e8b;
+}
+
+
+.product-detail-table.my-table{ 
+    max-width: 90%;
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+}
+
+.my-table-row{
+    border-bottom: 1pt solid #ff000d;
+    max-width: 90%;
+    margin:auto;
+    margin-left: 1rem;
+}
+
+.full-width{
+    width:100%
+}
+
+.my-table-data{
+    padding:0.5rem;
+    max-width: 30%;
+    border-bottom: 1pt solid #cccccc;
+}
+
+
+.max-width-100{
+    max-width: 100%;
+}
+
+.edit-delete-container{
+    padding-top: 0.5rem;
+    margin-left: 5%;
+}
+
+
