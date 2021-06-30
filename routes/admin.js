@@ -8,7 +8,6 @@ const multer = require("multer")
 const {storage} = require('../cloudinary config/index')
 const {cloudinary} = require('../cloudinary config/index')
 const addProduct = require('../middlewares/addProduct')
-const { findById } = require("../models/product")
 const upload = multer({storage})
 router.get('/login', (req, res)=>{
     res.render('admin/admin-login')
@@ -62,8 +61,10 @@ router.get('/categories/new', (req, res, next)=>{
 
 router.post('/categories',async (req, res)=>{
     let category = req.body;
+    console.log("Inside Categories")
     //console.log(category);
     let {error} = categorySchemaJoi.validate(category)
+    console.log(error)
     //console.log("Error in JoiSchema", error)
     if(!error){
         //console.log("No error in Joi Schema")
@@ -77,6 +78,7 @@ router.post('/categories',async (req, res)=>{
         }).catch(err=>{
             //console.log({err})
             //console.log("Cateogory could not be added :: ", error)
+            console.log(err)
             req.flash("errorAddCategory",'could not add to the database :: ')
             return res.redirect('/admin/random_letters/categories/new')    
         })
@@ -169,6 +171,11 @@ router.patch('/products/:id',addProduct.validate,(err, req, res, next)=>{
                     res.redirect("../"+data._id)
                 }
             })
+        })
+
+
+router.get('/edit_featured_categories', (req, res)=>{
+    res.render('admin/edit_featured_categories.ejs', {title:'Select Featured Cateogories'});
 })
 
 module.exports = router

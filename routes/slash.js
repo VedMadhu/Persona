@@ -214,4 +214,8 @@ router.post("/otp_confirmation", async (req, res)=>{
     }
 })
 
+router.get("/categories", (req, res, next)=>{
+    res.render('categories.ejs')
+})
+
 module.exports = router;

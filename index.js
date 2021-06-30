@@ -131,10 +131,3 @@ app.use("/users", users)
 app.listen(3000, ()=>{
     console.log("Listening  on 3000")
 })
-
-
-app.post('/popat', (req, res, next)=>{
-    console.log(req.body)
-    res.send(req.body)
-})
-

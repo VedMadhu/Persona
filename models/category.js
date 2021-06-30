@@ -9,20 +9,29 @@ const CategorySchema = new Schema({
         unique:true,
         uniqueCaseInsensitive: true
     },
-    max_characters:{
+    number_of_characters:{
         type:Number,
         min:[0, "number of characters cannot be negative"],
         max:[15, "Number of Characters cannot be more than 50"]
+        ,required:true
     },
-    max_photos:{
+    number_of_photos:{
         type:Number,
         min:[0,"Number of Photos cannot be negative"],
         max:[15, "Number of Photos cannot be more than 15"]
+        ,required:true
     },
     tag_words:[{
         type:String,
         max:[10,"tags Cannot be more than 10"]
-    }]
+        ,required:true
+    }],
+    deleted:{
+        type:Boolean
+    },
+    featured:{
+        type:Boolean
+    },
 })
 
 
