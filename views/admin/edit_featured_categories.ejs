@@ -2,41 +2,71 @@
     </style>
     <div class="container">
         <form action="" method="POST">
-            <div class="container  text-center">
-                <div class="label">Delete Featured Products</div>
-                <div class="container-fluid row mx-0">
-                    <label for=""></label>
-                    <div class='col-12 col-md-6 p-3 col-4 col-xl-4'>
-                        <div class='image-container'>
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="..." width="100%" height="200px" alt="Card image cap">
-                                <div class="card-body">
-                                  <h5 class="card-title">
-                                      Category Name
-                                  </h5>
-                                </div>
-                              </div>
+            <div class="container  text-center"> 
+                <script>
+                    let counter = 0;
+                </script>
+                <div class="heading featured-heading">Featured Categories. Select which are to be deleted</div>
+                <% for(category of categories) {%> 
+                    <% if(category.featured==true){%> 
+                    <script>counter++</script>
+                    <label for="<%=category.name %>">
+                        <div class="container-fluid row mx-0">
+                                <div class='image-container'>
+                                    <div class="card" style="width: 18rem;">
+                                        <input type="checkbox" id="<%=category.name%>" style="position:absolute">
+                                        <img class="card-img-top" src="..." width="100%" height="200px" alt="Card image cap">
+                                        <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= category.name %> 
+                                        </h5>
+                                        </div>
+                                      </div>
+                                    </div>
                         </div>
-                    </div>
-                   
-                  </div>                      
+                    </label>
+                    <% } %> 
+                <% } %>    
+                <script>
+                    if(counter == 0)
+                    {
+                        let featuredHeading = document.querySelector('.featured-heading');
+                        featuredHeading.innerText = "No Featured Category. Select Some."
+                    }
+                </script>              
             </div>
             <div class="container text-center">
-                <div class="label">Add Featured Products</div>
-                <div class="container-fluid row mx-0">
-                    <div class='col-12 col-md-6 p-3 col-4 col-xl-4'><div class='image-container' >
-                        <div class='image-container'>
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="..." width="100%" height="200px" alt="Card image cap">
-                                <div class="card-body">
-                                  <h5 class="card-title">Category Name</h5>
-
-                                </div>
-                              </div>
-                        </div>
-                    </div></div>
-                   
-                  </div>
+                <script>
+                    counter = 0;
+                </script>
+            <div class="heading non-featured-heading">Below ones are not Featured. Select.</div>
+            <div class="container-fluid row mx-0">
+            <% for(category of categories) { %> 
+                <%if(category.featured!=true){ %>
+                    <script>counter++</script>
+                    <label for="<%=category.name %>" class="col-12 col-md-6 p-3 col-4 col-xl-4">
+                                <div class='image-container'>
+                                    <div class="card" style="width: 100%;">
+                                        <input type="checkbox" id="<%=category.name%>" style="position:absolute">
+                                        <img class="card-img-top" src="..." width="100%" height="200px" alt="Card image cap">
+                                        <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= category.name %> 
+                                        </h5>
+                                        </div>
+                                      </div>
+                                    </div>
+                    </label>
+                <% } %> 
+            <% } %> 
+            <div class="container-fluid row mx-0">
+            <script>
+                if(counter == 0)
+                {
+                    let nonFeaturedHeading = document.querySelector('.non-featured-heading');
+                    nonFeaturedHeading.innerText = "All the products are featured. Nothing to featured"
+                }
+            </script>  
             </div>
 
         </form>

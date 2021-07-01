@@ -3,9 +3,9 @@ if(process.env.NODE_ENV !== 'production')
     require('dotenv').config()
 }
 
-console.log(process.env.cloudinary_api_key)
-console.log(process.env.cloudinary_api_secret)
-console.log(process.env.cloudinary_api_cloudname)
+//console.log(process.env.cloudinary_api_key)
+//console.log(process.env.cloudinary_api_secret)
+//console.log(process.env.cloudinary_api_cloudname)
 const methodOverride = require('method-override')
 const express = require("express")
 const app = express()
@@ -71,8 +71,8 @@ app.use(flash())
 
 
 app.use(function(req, res, next){
-    console.log("req.user ", req.user)
-    console.log("All the Sessions"+JSON.stringify(req.session))
+    //console.log("req.user ", req.user)
+    //console.log("All the Sessions"+JSON.stringify(req.session))
     if(!res.locals.message)
     {
     res.locals.message={}
@@ -94,7 +94,7 @@ app.use(function(req, res, next){
     }else{
     //    console.log("res.locals :: ", res.locals)
     }
-    console.log("All Locals :: ", res.locals)
+    //console.log("All Locals :: ", res.locals)
     //console.log(JSON.stringify(req.session))
     next()
 })

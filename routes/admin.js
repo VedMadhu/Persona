@@ -121,6 +121,8 @@ router.post('/categories/:category_id/products',upload.array('images')
     deleteFromCloudinary(images, function(){
         console.log('deleted from cloudinary')
     })
+    console.log("printing the uploaded images")
+    console.log(images);
     console.log("Not Valid Data :: ", error)
     req.flash('invalidData', "Data you added is invalid")
     req.session.form = req.body
@@ -174,8 +176,10 @@ router.patch('/products/:id',addProduct.validate,(err, req, res, next)=>{
         })
 
 
-router.get('/edit_featured_categories', (req, res)=>{
-    res.render('admin/edit_featured_categories.ejs', {title:'Select Featured Cateogories'});
+router.get('/edit_featured_categories',async (req, res)=>{
+    let categories = await Category.find({});
+    console.log(categories); 
+    res.render('admin/edit_featured_categories.ejs', {title:'Select Featured Cateogories', categories});
 })
 
 module.exports = router
