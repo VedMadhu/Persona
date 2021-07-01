@@ -182,4 +182,19 @@ router.get('/edit_featured_categories',async (req, res)=>{
     res.render('admin/edit_featured_categories.ejs', {title:'Select Featured Cateogories', categories});
 })
 
+router.patch('/edit_featured_categories', async(req, res)=>{
+    let data = req.body;
+    console.log(data);
+    await Category.updateMany({_id:{$in:data.add}}, {featured:true}).then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log(err)
+    });
+    await Category.updateMany({_id:{$in:data.delete}}, {featured:false}).then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log(err)
+    });;
+})
+
 module.exports = router

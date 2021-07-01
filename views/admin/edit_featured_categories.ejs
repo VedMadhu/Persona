@@ -1,12 +1,12 @@
     <%- include('./partials/header', {title}) %> 
     </style>
     <div class="container">
-        <form action="" method="POST">
-            <div class="container  text-center"> 
+        <form action="edit_featured_categories?_method=PATCH" method="POST" class="mb-4">
+            <div class="container"> 
                 <script>
                     let counter = 0;
                 </script>
-                <div class="heading featured-heading">Featured Categories. Select which are to be deleted</div>
+                <div class="heading featured-heading text-center">Featured Categories. Select which are to be deleted</div>
                 <% for(category of categories) {%> 
                     <% if(category.featured==true){%> 
                     <script>counter++</script>
@@ -14,7 +14,7 @@
                         <div class="container-fluid row mx-0">
                                 <div class='image-container'>
                                     <div class="card" style="width: 18rem;">
-                                        <input type="checkbox" id="<%=category.name%>" style="position:absolute">
+                                        <input type="checkbox" id="<%=category.name%>" name="delete[]" value= "<%= category.id %>" style="position:absolute">
                                         <img class="card-img-top" src="..." width="100%" height="200px" alt="Card image cap">
                                         <div class="card-body">
                                         <h5 class="card-title">
@@ -47,7 +47,7 @@
                     <label for="<%=category.name %>" class="col-12 col-md-6 p-3 col-4 col-xl-4">
                                 <div class='image-container'>
                                     <div class="card" style="width: 100%;">
-                                        <input type="checkbox" id="<%=category.name%>" style="position:absolute">
+                                        <input type="checkbox" id="<%=category.name%>" name="add[]" value= "<%= category.id %>" style="position:absolute">
                                         <img class="card-img-top" src="..." width="100%" height="200px" alt="Card image cap">
                                         <div class="card-body">
                                         <h5 class="card-title">
@@ -68,7 +68,7 @@
                 }
             </script>  
             </div>
-
+            <input type="Submit" class="btn btn-success px-3" value="Finish" style="width:fit-content;">
         </form>
     </div>
     <%- include('./partials/footer') %> 
