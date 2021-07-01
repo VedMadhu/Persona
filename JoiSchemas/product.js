@@ -1,6 +1,11 @@
 const Joi = require('Joi');
 Joi.objectId = require('joi-objectid')(Joi)
 
+const imageSchemaJoi = Joi.object({
+    url:Joi.string().uri(),
+    fileName:Joi.string().uri()
+})
+
 const productSchemaJoi = Joi.object(
     {
         name:Joi.string().regex(/^[0-9a-zA-Z ]+$/).required()
@@ -11,4 +16,4 @@ const productSchemaJoi = Joi.object(
 ).required()
 
 
-module.exports = productSchemaJoi
+module.exports = {productSchemaJoi, imageSchemaJoi};

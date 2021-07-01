@@ -1,17 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const uniqueValidator = require('mongoose-unique-validator');
-
-const ImageSchema = new Schema({
-    url:String,
-    filename:String
-})
-
-ImageSchema.virtual('view_photo').get(function(){
-    if(this.url)
-    return this.url.replace('/upload', '/upload/w_300')
-    return ""
-})
+const {ImageSchema} = require('./image');
 
 const ProductSchema =new Schema({
     name:{
